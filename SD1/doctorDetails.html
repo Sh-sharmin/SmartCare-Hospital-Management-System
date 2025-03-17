@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doctors Details</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="doctorDetails.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="logo-container">
+          <img height="45px" src="Images/stethoscope 1.png" alt="" />
+          <h3 style="font-size: 28px">𝓢𝓶𝓪𝓻𝓽𝓒𝓪𝓻𝓮</h3>
+        </div>
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="Service.html" class="nav-link">Services</a>
+          </li>
+          <li class="nav-item">
+            <a href="doctors.html" class="nav-link">Our Doctors</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a href="contact.html" class="nav-link">Contact us</a>
+          </li>
+          <li class="nav-item">
+            <a
+              href="login.html"
+              class="nav-link"
+              style="color: whitesmoke; background-color: #037589"
+              >Login</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <h1 class="title">Doctor Details</h1>
+      <div class="doctor-card">
+        <img id="doc-img" class="doctor-img" src="" alt="Doctor Image" />
+        <h2 id="doc-name"></h2>
+        <h4 id="doc-designation"></h4>
+        <p id="doc-specialization"></p>
+        <p id="doc-education"></p>
+        <h5 id="doc-fee"></h5>
+        <button id="take-appointment-btn" onclick="openModal()">
+          Take Appointment
+        </button>
+      </div>
+
+      <!-- Model -->
+      <div id="appointment-modal" class="appointment-modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title">Take Appointment</h1>
+            <span onclick="closeModal()" class="close-btn">&times;</span>
+          </div>
+          <div class="modal-body">
+            <div class="radio-group">
+              <label class="radio-option">
+                <input type="radio" name="status" value="Offline" /> Offline
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="status" value="Online" /> Online
+              </label>
+            </div>
+            <input id="symptom" type="text" placeholder="Type your symptom" />
+            <br />
+            <select id="time-container" class="p-2 mt-2"></select>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn-secondary" onclick="closeModal()">
+              Close
+            </button>
+            <button
+              onclick="handleAppointment()"
+              type="button"
+              class="btn-primary"
+            >
+              Take Appointment
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer_box">
+      <div class="f_container">
+        <div class="row">
+          <div class="col">
+            <h2>Smartcare</h2>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing ecessitatibus
+              minus vitae autem obcaecati nihil doloribus!
+            </p>
+            <div class="social">
+              <h4>Follow us</h4>
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+          </div>
+          <div class="col" id="services">
+            <h3>Company</h3>
+            <div class="links">
+              <a href="#">About</a>
+              <a href="#">Contact us</a>
+              <a href="#">Service</a>
+              <a href="#">Blog</a>
+            </div>
+          </div>
+          <div class="col" id="useful_links">
+            <h3>Support</h3>
+            <div class="links">
+              <a href="#">Help Center</a>
+              <a href="#">Privacy policy</a>
+              <a href="#">Terms of Services</a>
+              <a href="#">FAQ</a>
+            </div>
+          </div>
+          <div class="col" id="contact">
+            <h3>Contact</h3>
+            <div class="contact_details">
+              <i class="fa fa-location"></i>
+              <p>Tower-4,CDA Avenue,Chattogram</p>
+            </div>
+            <div class="contact_details">
+              <i class="fa fa-phone"></i>
+              <p>+8801298374653</p>
+            </div>
+            <div class="contact_details">
+              <i class="fa fa-envelope"></i>
+              <p>smartcare@gmail.com</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <p class="footer-bottom-text">
+        Copyright © Smartcare. All Rights Reserved
+      </p>
+    </footer>
+
+    <script>
+      // Function to get query parameters
+      const getQueryParams = () => {
+        const params = new URLSearchParams(window.location.search);
+        return {
+          name: params.get("name"),
+          image: params.get("image"),
+          designation: params.get("designation"),
+          specialization: params.get("specialization"),
+          education: params.get("education"),
+          fee: params.get("fee"),
+        };
+      };
+
+      // Display the doctor's details
+      const doctor = getQueryParams();
+      document.getElementById("doc-name").innerText = doctor.name;
+      document.getElementById("doc-img").src = doctor.image;
+      document.getElementById("doc-designation").innerText = doctor.designation;
+      document.getElementById(
+        "doc-specialization"
+      ).innerText = `Specialization: ${doctor.specialization}`;
+      document.getElementById("doc-education").innerText = doctor.education;
+      document.getElementById(
+        "doc-fee"
+      ).innerText = `Fee: ${doctor.fee}`;
+    </script>
+     <script src="app.js"></script>
+    <script src="doctorDetails.js"></script>
+    <script src="doctors.js"></script>
+  </body>
+</html>
