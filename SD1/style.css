@@ -385,7 +385,6 @@ button:hover {
 }
 
 .blog-detail-container {
-  background-color: #1f2f3c;
   max-width: 800px;
   margin: 50px auto;
   padding: 20px;
@@ -407,6 +406,20 @@ button:hover {
   font-size: 18px;
   text-align: justify;
   line-height: 1.6;
+}
+
+.blog-btn {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.prev-blog,.prev-blog {
+  padding: 10px 20px;
+  background-color: #037589;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
 }
 
 .back-btn {

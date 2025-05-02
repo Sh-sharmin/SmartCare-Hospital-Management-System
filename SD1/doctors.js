@@ -247,6 +247,7 @@ const viewDoctorDetails = (index) => {
 
 const loadDoctors = (search = "") => {
   document.getElementById("doctors-container").innerHTML = "";
+  document.getElementById("Searched-doctors").innerHTML = "";
   document.getElementById("spinner").style.display = "block";
 
   setTimeout(() => {

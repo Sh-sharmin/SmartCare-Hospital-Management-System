@@ -39,35 +39,193 @@ document.querySelector(".prev").addEventListener("click", () => {
   ).style.transform = `translateX(-${scrollAmount}px)`;
 });
 
-const redirect =()=> {
+const redirect = () => {
   window.location.href = "service.html";
-}
-
+};
 
 const doctors = [
-  { id: 0, full_name: "Dr. Ayesha Khan", image: "Images/doc1.jpg", designation: ["Senior Consultant"], specialization: ["Cardiologist"], fee: 2000, education: "MBBS, MD (Cardiology) - Harvard Medical School" },
-  { id: 1, full_name: "Dr. James Smith", image: "Images/doc2.jpg", designation: ["Medical Officer"], specialization: ["Dermatologist"], fee: 1500, education: "MBBS, Diploma in Dermatology - Johns Hopkins University" },
-  { id: 2, full_name: "Dr. Lisa Brown", image: "Images/doc4.jpg", designation: ["Assistant Professor"], specialization: ["Neurologist"], fee: 1800, education: "MBBS, MD (Neurology) - Stanford University" },
-  { id: 3, full_name: "Dr. Ahmed Rahman", image: "Images/doc3.jpg", designation: ["Surgeon"], specialization: ["Orthopediatritian"], fee: 2500, education: "MBBS, MS (Orthopedics) - University of Toronto" },
-  { id: 4, full_name: "Dr. Emily Watson", image: "Images/doc1.jpg", designation: ["Resident Doctor"], specialization: ["Peadiatritians"], fee: 1200, education: "MBBS, MD (Pediatrics) - Yale University" },
-  { id: 5, full_name: "Dr. Robert Green", image: "Images/doc3.jpg", designation: ["Professor"], specialization: ["Internal medicine"], fee: 2200, education: "MBBS, MD (Internal Medicine) - Oxford University" },
-  { id: 6, full_name: "Dr. Sophia White", image: "Images/doc4.jpg", designation: ["Senior Consultant"], specialization: ["Cardiologist"], fee: 2000, education: "MBBS, MD (Cardiology) - Cambridge University" },
-  { id: 7, full_name: "Dr. David Johnson", image: "Images/doc2.jpg", designation: ["Medical Officer"], specialization: ["Dermatologist"], fee: 1500, education: "MBBS, Diploma in Dermatology - University of California, San Francisco" },
-  { id: 8, full_name: "Dr. Olivia Martinez", image: "Images/doc1.jpg", designation: ["Assistant Professor"], specialization: ["Neurologist"], fee: 1800, education: "MBBS, MD (Neurology) - Duke University" },
-  { id: 9, full_name: "Dr. Henry Wilson", image: "Images/doc3.jpg", designation: ["Surgeon"], specialization: ["Orthopediatritian"], fee: 2500, education: "MBBS, MS (Orthopedics) - University of Sydney" },
-  { id: 10, full_name: "Dr. Maria Garcia", image: "Images/doc4.jpg", designation: ["Resident Doctor"], specialization: ["Peadiatritians"], fee: 1200, education: "MBBS, MD (Pediatrics) - Columbia University" },
-  { id: 11, full_name: "Dr. Ethan Miller", image: "Images/doc3.jpg", designation: ["Professor"], specialization: ["Internal medicine"], fee: 2200, education: "MBBS, MD (Internal Medicine) - University of Chicago" },
-  { id: 12, full_name: "Dr. Isabella Brown", image: "Images/doc1.jpg", designation: ["Senior Consultant"], specialization: ["Cardiologist"], fee: 2000, education: "MBBS, MD (Cardiology) - Imperial College London" },
-  { id: 13, full_name: "Dr. Daniel Thomas", image: "Images/doc2.jpg", designation: ["Medical Officer"], specialization: ["Physiatrist"], fee: 1600, education: "MBBS, MD (Physical Medicine) - University of Michigan" },
-  { id: 14, full_name: "Dr. Charlotte Scott", image: "Images/doc4.jpg", designation: ["Assistant Professor"], specialization: ["General surgery"], fee: 2100, education: "MBBS, MS (General Surgery) - University of Pennsylvania" },
-  { id: 15, full_name: "Dr. Logan Harris", image: "Images/doc4.jpg", designation: ["Surgeon"], specialization: ["Orthopediatritian"], fee: 2500, education: "MBBS, MS (Orthopedics) - University of Melbourne" },
-  { id: 16, full_name: "Dr. Amelia Robinson", image: "Images/doc4.jpg", designation: ["Resident Doctor"], specialization: ["Peadiatritians"], fee: 1200, education: "MBBS, MD (Pediatrics) - Johns Hopkins University" },
-  { id: 17, full_name: "Dr. Michael Carter", image: "Images/doc2.jpg", designation: ["Professor"], specialization: ["Internal medicine"], fee: 2200, education: "MBBS, MD (Internal Medicine) - University of Toronto" },
-  { id: 18, full_name: "Dr. Benjamin Lee", image: "Images/doc4.jpg", designation: ["Senior Consultant"], specialization: ["Physiatrist"], fee: 1900, education: "MBBS, MD (Physical Medicine) - Harvard Medical School" },
-  { id: 19, full_name: "Dr. Grace Adams", image: "Images/doc2.jpg", designation: ["Medical Officer"], specialization: ["Dermatologist"], fee: 1500, education: "MBBS, Diploma in Dermatology - University of Washington" }
+  {
+    id: 0,
+    full_name: "Dr. Ayesha Khan",
+    image: "Images/doc1.jpg",
+    designation: ["Senior Consultant"],
+    specialization: ["Cardiologist"],
+    fee: 2000,
+    education: "MBBS, MD (Cardiology) - Harvard Medical School",
+  },
+  {
+    id: 1,
+    full_name: "Dr. James Smith",
+    image: "Images/doc2.jpg",
+    designation: ["Medical Officer"],
+    specialization: ["Dermatologist"],
+    fee: 1500,
+    education: "MBBS, Diploma in Dermatology - Johns Hopkins University",
+  },
+  {
+    id: 2,
+    full_name: "Dr. Lisa Brown",
+    image: "Images/doc4.jpg",
+    designation: ["Assistant Professor"],
+    specialization: ["Neurologist"],
+    fee: 1800,
+    education: "MBBS, MD (Neurology) - Stanford University",
+  },
+  {
+    id: 3,
+    full_name: "Dr. Ahmed Rahman",
+    image: "Images/doc3.jpg",
+    designation: ["Surgeon"],
+    specialization: ["Orthopediatritian"],
+    fee: 2500,
+    education: "MBBS, MS (Orthopedics) - University of Toronto",
+  },
+  {
+    id: 4,
+    full_name: "Dr. Emily Watson",
+    image: "Images/doc1.jpg",
+    designation: ["Resident Doctor"],
+    specialization: ["Peadiatritians"],
+    fee: 1200,
+    education: "MBBS, MD (Pediatrics) - Yale University",
+  },
+  {
+    id: 5,
+    full_name: "Dr. Robert Green",
+    image: "Images/doc3.jpg",
+    designation: ["Professor"],
+    specialization: ["Internal medicine"],
+    fee: 2200,
+    education: "MBBS, MD (Internal Medicine) - Oxford University",
+  },
+  {
+    id: 6,
+    full_name: "Dr. Sophia White",
+    image: "Images/doc4.jpg",
+    designation: ["Senior Consultant"],
+    specialization: ["Cardiologist"],
+    fee: 2000,
+    education: "MBBS, MD (Cardiology) - Cambridge University",
+  },
+  {
+    id: 7,
+    full_name: "Dr. David Johnson",
+    image: "Images/doc2.jpg",
+    designation: ["Medical Officer"],
+    specialization: ["Dermatologist"],
+    fee: 1500,
+    education:
+      "MBBS, Diploma in Dermatology - University of California, San Francisco",
+  },
+  {
+    id: 8,
+    full_name: "Dr. Olivia Martinez",
+    image: "Images/doc1.jpg",
+    designation: ["Assistant Professor"],
+    specialization: ["Neurologist"],
+    fee: 1800,
+    education: "MBBS, MD (Neurology) - Duke University",
+  },
+  {
+    id: 9,
+    full_name: "Dr. Henry Wilson",
+    image: "Images/doc3.jpg",
+    designation: ["Surgeon"],
+    specialization: ["Orthopediatritian"],
+    fee: 2500,
+    education: "MBBS, MS (Orthopedics) - University of Sydney",
+  },
+  {
+    id: 10,
+    full_name: "Dr. Maria Garcia",
+    image: "Images/doc4.jpg",
+    designation: ["Resident Doctor"],
+    specialization: ["Peadiatritians"],
+    fee: 1200,
+    education: "MBBS, MD (Pediatrics) - Columbia University",
+  },
+  {
+    id: 11,
+    full_name: "Dr. Ethan Miller",
+    image: "Images/doc3.jpg",
+    designation: ["Professor"],
+    specialization: ["Internal medicine"],
+    fee: 2200,
+    education: "MBBS, MD (Internal Medicine) - University of Chicago",
+  },
+  {
+    id: 12,
+    full_name: "Dr. Isabella Brown",
+    image: "Images/doc1.jpg",
+    designation: ["Senior Consultant"],
+    specialization: ["Cardiologist"],
+    fee: 2000,
+    education: "MBBS, MD (Cardiology) - Imperial College London",
+  },
+  {
+    id: 13,
+    full_name: "Dr. Daniel Thomas",
+    image: "Images/doc2.jpg",
+    designation: ["Medical Officer"],
+    specialization: ["Physiatrist"],
+    fee: 1600,
+    education: "MBBS, MD (Physical Medicine) - University of Michigan",
+  },
+  {
+    id: 14,
+    full_name: "Dr. Charlotte Scott",
+    image: "Images/doc4.jpg",
+    designation: ["Assistant Professor"],
+    specialization: ["General surgery"],
+    fee: 2100,
+    education: "MBBS, MS (General Surgery) - University of Pennsylvania",
+  },
+  {
+    id: 15,
+    full_name: "Dr. Logan Harris",
+    image: "Images/doc4.jpg",
+    designation: ["Surgeon"],
+    specialization: ["Orthopediatritian"],
+    fee: 2500,
+    education: "MBBS, MS (Orthopedics) - University of Melbourne",
+  },
+  {
+    id: 16,
+    full_name: "Dr. Amelia Robinson",
+    image: "Images/doc4.jpg",
+    designation: ["Resident Doctor"],
+    specialization: ["Peadiatritians"],
+    fee: 1200,
+    education: "MBBS, MD (Pediatrics) - Johns Hopkins University",
+  },
+  {
+    id: 17,
+    full_name: "Dr. Michael Carter",
+    image: "Images/doc2.jpg",
+    designation: ["Professor"],
+    specialization: ["Internal medicine"],
+    fee: 2200,
+    education: "MBBS, MD (Internal Medicine) - University of Toronto",
+  },
+  {
+    id: 18,
+    full_name: "Dr. Benjamin Lee",
+    image: "Images/doc4.jpg",
+    designation: ["Senior Consultant"],
+    specialization: ["Physiatrist"],
+    fee: 1900,
+    education: "MBBS, MD (Physical Medicine) - Harvard Medical School",
+  },
+  {
+    id: 19,
+    full_name: "Dr. Grace Adams",
+    image: "Images/doc2.jpg",
+    designation: ["Medical Officer"],
+    specialization: ["Dermatologist"],
+    fee: 1500,
+    education: "MBBS, Diploma in Dermatology - University of Washington",
+  },
 ];
-
-
 
 const loadDoctors = (search = "") => {
   document.getElementById("doctors").innerHTML = "";
@@ -99,8 +257,8 @@ const loadDoctors = (search = "") => {
 const displayDoctors = (doctorsList) => {
   const parent = document.getElementById("doctors");
   parent.innerHTML = "";
-  doctorsList = doctorsList.slice(0,6);
-  doctorsList.forEach((doctor,index) => {
+  doctorsList = doctorsList.slice(0, 6);
+  doctorsList.forEach((doctor, index) => {
     const div = document.createElement("div");
     div.classList.add("doc-card");
     div.innerHTML = `
@@ -124,8 +282,8 @@ const viewDoctorDetails = (index) => {
     image: doctor.image,
     designation: doctor.designation[0],
     specialization: doctor.specialization[0],
-    fee:doctor.fee,
-    education:doctor.education,
+    fee: doctor.fee,
+    education: doctor.education,
   }).toString();
 
   window.location.href = `doctorDetails.html?${queryParams}`;
@@ -149,7 +307,6 @@ const handleSearch = () => {
   const value = document.getElementById("search").value;
   loadDoctors(value);
 };
-
 
 const loadReview = () => {
   fetch("https://testing-8az5.onrender.com/doctor/review/")
@@ -241,4 +398,3 @@ loadDoctors();
 loadServices();
 loadSpecialization();
 loadReview();
-
